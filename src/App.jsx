@@ -17,30 +17,30 @@ const App = () => {
       </button>
 
       {postList.status === "inativo" ? (
-        <div>API status: {postList.status}</div>
+        <p className="inativo mensagem">API status: {postList.status}</p>
       ) : null}
 
       {postList.status === "carregando" ? (
-        <div>API status: {postList.status}</div>
+        <p className="carregando mensagem">API status: {postList.status}</p>
       ) : null}
 
       {postList.status === "sucesso" ? (
-        <div>API status: {postList.status}</div>
+        <p className="sucesso mensagem">API status: {postList.status}</p>
       ) : null}
 
       {postList.status === "erro" ? (
-        <div>API status: {postList.status}</div>
+        <p className="erro mensagem">API status: {postList.status}</p>
       ) : null}
 
-      {postList.status !== "carregando" &&
-        postList.data.length &&
-        postList.data.map((post, key) => (
-          <div key={key}>
-            <div>
-              <span>Título: {post.title}</span>
-            </div>
-          </div>
-        ))}
+      <article>
+        {postList.status !== "carregando" &&
+          postList.data.length &&
+          postList.data.map((post, key) => (
+            <h3 key={key}>
+              <b>Título:</b> {post.title}
+            </h3>
+          ))}
+      </article>
     </div>
   );
 };
